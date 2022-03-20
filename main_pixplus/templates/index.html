@@ -4,10 +4,89 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static '/icon/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>Welcome to Pix+</title>
 </head>
 <body>
-    <p>💛</p>
+    
+    <div class="iconbar">
+        <img class="icon_news" src="{% static 'icon/icon_news.svg' %}" alt="This is news icon">
+        <img class="icon_paper" src="{% static 'icon/icon_paper.svg' %}" alt="This is academic paper icon">
+        <img class="icon_url" src="{% static 'icon/icon_customurl.svg' %}" alt="This is url input icon">
+        <img class="icon_logout" src="{% static 'icon/icon_logout.svg' %}" alt="This is logout icon">
+    </div>
+
+    <div class="direcbar">
+        <div class="direcbar_top">: welcome to pix+</div>
+        <div class="direcbar_body">
+            <div class="project_container">
+                <details class="proj">
+                    <summary>
+                        <label class="label_proj">픽쁠입니다</label>
+                        <img class="icon_proj" src="{% static 'icon/folder_open_yellow.svg' %}" alt="This is project icon">
+                    </summary>
+                    <div>
+                        <ul class="itme_ul">
+                            <img class="icon_file" src="{% static 'icon/file.svg' %}" alt="this is file" >
+                            파일                  
+                            <li class="item_li">li 여기</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <div class="window_main">
+        <div class="window_active_tab">
+        </div>
+        <div class="window_active">
+            <div class="logo_div">
+                <img class="logo" src="{% static 'icon/logo_pixel.svg' %}" alt="This is logo pixel">
+            </div>
+            <div class="block_div">
+                <section class="block">
+                    반갑습니다 ! 여러분의 자료를 위한 자료.
+                    <br>
+                    디지털 [필경사] 픽플 입니다.
+                    <br>
+                    저희는 “안그래도 복잡한 세상” 편하고 똑똑하게 사는 것을 추구합니다.
+                </section>
+            </div>
+            <div class="block_div">
+                <section class="block">
+                    <span class="title">
+                        첫 번째 시작은, 여러분들의 프로젝트 !
+                    </span>
+                        <br>
+                        반복되는 Ctrl+C Ctrl+V .. 워드 올려 🏴 웹 내려 🏳️ 다시 워드 올리지말고 메모장 올려 🏴
+                        <br>
+                        아까 본 그 자료.. 어딨지?! 탭이 너무 많아 😵💫
+                </section>
+            </div>
+            <div class="block_div">
+                <section class="block">
+                    <span class="title">
+                        이제 그-만
+                    </span>
+                    <br>
+                    💁🏻 Pix+ 프로젝트에 필요한 소스를 모으고 똑똑하게 정리 하세요.
+                    <br>
+                    여러분이 해야할 일은 <span class="highlight_yellow">오직 검색하고, Drag</span>하기. 
+                    <br>
+                    인덱스 Clik 한번에 자료로 이동하기 ! 손 쉬운 출처 복사까지 다 저희가 돕겠습니다 😉
+                </section>
+            </div>
+
+            <div class="block_div">
+                <div class="comment">
+                    ㄴ 이제 자료조사 편하고 똑똑하게 합시다 🤓
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

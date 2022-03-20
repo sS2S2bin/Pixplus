@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# main_pixplus 앱의 view 파일 부르기
+import main_pixplus.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main_pixplus.urls')),
+    # url 에 아무것도 입력 X -> 해당 앱의 views 파일 의 index 함수 로 이동
+    path('', main_pixplus.views.index, name='index'),
+    # path('', include('main_pixplus.urls')),
 ]
