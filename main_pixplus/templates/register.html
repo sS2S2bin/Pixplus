@@ -35,8 +35,7 @@
         <img src="{% static '/icon/icon_customurl.svg' %}" alt="">
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
-        <a href="{% url 'logout' %}">임시 로그아웃</a>
+        <img src="{% static '/icon/icon_logout.svg' %}" alt="">
       </div>
     </section>
     <!-- DIRECBAR -->
@@ -90,19 +89,17 @@
               <div class="file_text">
                 Login
               </div>
-              <a href="{% url 'login' %}">임시 로그인</a>
             </div>
             <div class="file direcbox">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
-              <a href="{% url 'newpixple' %}">Join pix+</a>
-              <!-- <div class="add_newpixple">
+              <div class="add_newpixple">
               Join pix+
-              </div> -->
+              </div>
             </div>
-             <div class="add_newproj">
+            <div class="add_newproj">
               프로젝트 추가
-            </div> 
+            </div>
           </div>
           
         </div>
@@ -129,32 +126,26 @@
         <div class="block_container">
           <div class="text_block">
             <span class="title">
-              첫 번째 시작은, 여러분들의 프로젝트 !
+              환영합니다 ! 
           </span>
-              <br>
-              반복되는 Ctrl+C Ctrl+V .. 워드 올려 🏴 웹 내려 🏳️ 다시 워드 올리지말고 메모장 올려 🏴
-              <br>
-              아까 본 그 자료.. 어딨지?! 탭이 너무 많아 😵💫
-          </div>
-        </div>
-        <div class="block_container">
-          <div class="text_block">
-            <span class="title">
-              이제 그-만
-            </span>
+
+
+          <!--회원가입 폼-->
+          <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            <p>username</p>
+            <input type="text" name="username">
             <br>
-            💁🏻 Pix+ 프로젝트에 필요한 소스를 모으고 똑똑하게 정리 하세요.
+            <p>password</p>
+            <input type="text" name="password">
             <br>
-            여러분이 해야할 일은 <span class="highlight_yellow">오직 검색하고, Drag</span>하기. 
+            <p>confirm</p>
+            <input type="text" name="confirm">
             <br>
-            인덱스 Clik 한번에 자료로 이동하기 ! 손 쉬운 출처 복사까지 다 저희가 돕겠습니다 😉
+            <input type="submit" value="회원가입">
+        </form>
+
           </div>
-          <div class="comment_block">
-            <div class="comment">
-                ㄴ 이제 자료조사 편하고 똑똑하게 합시다 🤓
-            </div>
-          </div>
-          
         </div>
       </div>
     </section>

@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # url 에 아무것도 입력 X -> 해당 앱의 views 파일 의 index 함수 로 이동
     path('', main_pixplus.views.index, name='index'),
-    # path('', include('main_pixplus.urls')),
+    path('', include('main_pixplus.urls')),
 ]
