@@ -96,8 +96,8 @@
             <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
-              <div class="file_text">
-                LOGIN
+              <div class="file_text gotologin">
+                <a class="file_link" href="{% url 'login' %}" target="_self">LOGIN</a>
               </div>
               <div class="file_drop unactive">
                 ▼
@@ -110,7 +110,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                Join PIX+
+                <a class="file_link" href="{% url 'signup' %}" target="_self">Join PIX+</a>
               </div>
               <div class="file_drop unactive">
                 ▼
