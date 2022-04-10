@@ -1,10 +1,12 @@
 import email
 from operator import ipow
 from pdb import post_mortem
+from time import timezone
 from django.shortcuts import redirect, render
 from django.contrib import auth # for register
 from django.contrib.auth import login, authenticate # for register
 from django.contrib.auth.models import User # for register
+from django.utils import timezone
 
 
 # Create your views here.
@@ -63,3 +65,14 @@ def logout(request):
 
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
     return render(request, 'login.html')
+
+def create_proj(request):
+    if request.method == 'POST':
+        # post = Post()
+        # post.proj_name = request.POST['proj_name']
+        # post.author = request.user
+        # post.created_at = timezone.datetime.now()
+        # post.save()
+        return redirect('/')
+    else:
+        return render(request, 'index.html')
