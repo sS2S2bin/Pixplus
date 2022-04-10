@@ -44,69 +44,82 @@
       <div class="inner_top esamanru_light">
         <div>: welcome to pix+</div>
       </div>
-      <div class="inner_body">
-        <!-- depth0 -->
-        <div class="depth0">
+      <nav class="inner_body">
+        <div class="proj">
+
           <div class="folder direcbox">
             <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
             <div class="folder_text esamanru_regul">
               픽쁠입니다
             </div>
           </div>
-          <!-- depth1 -->
-          <div class="depth1">
-            <div class="file direcbox">
+
+          <div class="file direcbox">
+            <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 Hello Pix+!
               </div>
+              <div class="file_drop unactive">
+                ▼
+              </div>
             </div>
-            <div class="file direcbox">
+          </div>
+          
+          <div class="file direcbox">
+            <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 How to?
               </div>
-            </div>
-            <!-- depth2 -->
-            <div class="depth2">
-              <div class="index direcbox">
-                <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-                <div class="index_text">
-                  01. 기능
-                </div>
-              </div>
-              <div class="index direcbox">
-                <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-                <div class="index_text">
-                  02. 혜택
-                </div>
+              <div class="file_drop unactive">
+                ▼
               </div>
             </div>
-            <div class="file direcbox">
+            <div class="index direcbox">
+              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="index_text">
+                01. 기능
+              </div>
+            </div>
+            <div class="index direcbox">
+              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="index_text">
+                02. 혜택
+              </div>
+            </div>
+          </div>
+
+          <div class="file direcbox">
+            <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                Login
+                LOGIN
               </div>
-              <a href="{% url 'login' %}">임시 로그인</a>
+              <div class="file_drop unactive">
+                ▼
+              </div>
             </div>
-            <div class="file direcbox">
+          </div>
+
+          <div class="file direcbox">
+            <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
-              <a href="{% url 'newpixple' %}">Join pix+</a>
-              <!-- <div class="add_newpixple">
-              Join pix+
-              </div> -->
+              <div class="file_text">
+                Join PIX+
+              </div>
+              <div class="file_drop unactive">
+                ▼
+              </div>
             </div>
-             <div class="add_newproj">
-              프로젝트 추가
-            </div> 
           </div>
-          
+
         </div>
-      </div>
+      </nav>
 
     </section>
     <!-- MAINWINDOW -->
