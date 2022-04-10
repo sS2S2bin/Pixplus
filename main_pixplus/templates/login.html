@@ -35,7 +35,8 @@
         <img src="{% static '/icon/icon_customurl.svg' %}" alt="">
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="">
+        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
+        <a href="{% url 'logout' %}">임시 로그아웃</a>
       </div>
     </section>
     <!-- DIRECBAR -->
@@ -43,109 +44,120 @@
       <div class="inner_top esamanru_light">
         <div>: welcome to pix+</div>
       </div>
-      <div class="inner_body">
-        <!-- depth0 -->
-        <div class="depth0">
+      <nav class="inner_body">
+        <div class="proj">
+
           <div class="folder direcbox">
             <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
             <div class="folder_text esamanru_regul">
               픽쁠입니다
             </div>
           </div>
-          <!-- depth1 -->
-          <div class="depth1">
-            <div class="file direcbox">
+
+          <div class="file direcbox">
+            <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 Hello Pix+!
               </div>
+              <div class="file_drop unactive">
+                ▼
+              </div>
             </div>
-            <div class="file direcbox">
+          </div>
+          
+          <div class="file direcbox">
+            <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 How to?
               </div>
-            </div>
-            <!-- depth2 -->
-            <div class="depth2">
-              <div class="index direcbox">
-                <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-                <div class="index_text">
-                  01. 기능
-                </div>
-              </div>
-              <div class="index direcbox">
-                <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-                <div class="index_text">
-                  02. 혜택
-                </div>
+              <div class="file_drop unactive">
+                ▼
               </div>
             </div>
-            <div class="file direcbox">
+            <div class="index direcbox">
+              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="index_text">
+                01. 기능
+              </div>
+            </div>
+            <div class="index direcbox">
+              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="index_text">
+                02. 혜택
+              </div>
+            </div>
+          </div>
+
+          <div class="file direcbox">
+            <div class="file_line">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                Login
+                LOGIN
               </div>
-            </div>
-            <div class="file direcbox">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
-              <div class="add_newpixple">
-              Join pix+
+              <div class="file_drop unactive">
+                ▼
               </div>
-            </div>
-            <div class="add_newproj">
-              프로젝트 추가
             </div>
           </div>
-          
+
+          <div class="file direcbox">
+            <div class="file_line">
+              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
+              <div class="file_text">
+                Join PIX+
+              </div>
+              <div class="file_drop unactive">
+                ▼
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
+      </nav>
 
     </section>
     <!-- MAINWINDOW -->
     <section class="box window_main">
-      <div class="inner_top">
+
+      <div class="tab inner_top">
         <div class="tab_title">
+          <!--제목부분네모-->
           <img class="mdicon tab_icon" src="{% static '/icon/file.svg' %}" alt="">
           <div class="tab_text">
             Hello Pix+!
           </div>
+          <div class="closeBtn">X</div>
         </div>
         <div class="tab_deco"></div>
+        <!--제목옆에세모-->
       </div>
+
       <div class="inner_body">
-        <div class="logo block_container">
-          <div class="logo_block">
-            <img src="{% static '/icon/logo_pixel.svg' %}" alt="">
+        
+        <div class="block_container login_block">
+          <div class="logo block_container">
+            <div class="logo_block">
+              <img src="{% static '/icon/logo_pixel.svg' %}" alt="">
+            </div>
           </div>
-        </div>
-        <div class="block_container">
-          <div class="text_block">
-            <span class="title">
-              시작해볼까요 ! 
-            </span>
-
-
-          <!--로그인 폼-->
+          <div class="title">시작해볼까요 !</div>
           <form method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-            <p>username</p>
-            <input type="text" name="username">
-            <br>
-            <p>password</p>
-            <input type="text" name="password">
-            <br>
-            <input type="submit" value="로그인">
-        </form>
-
-          </div>
+            <fieldset class="login_fieldset">
+              ID <input class="inputblank" type="text" name="id" placeholder="아이디"/>
+              PASSWORD <input class="inputblank" type="text" name="pw" placeholder="비밀번호"/>
+            </fieldset>
+            <input class="btn" type="submit" value="로그인"/>
+          </form>
         </div>
       </div>
     </section>
+
   </div>
 
 </body>

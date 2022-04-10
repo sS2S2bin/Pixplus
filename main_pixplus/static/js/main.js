@@ -1,32 +1,49 @@
-const depthZeroTrigger = document.querySelector('.depth0 .direcbox');
-const depthOneTrigger = document.querySelectorAll('.depth1 .direcbox');
-const depthOneEls = document.querySelector('.depth1');
-const depthTwoEls = document.querySelector('.depth2');
-const add_newproj = document.querySelector('.add_newproj');
-// const add_newpixple = document.querySelector('.add_newpixple');
+// DIRECBAR SYSTEM
+const folderEls = document.querySelectorAll('.folder');$
+const fileEls = document.querySelectorAll('.file_line');
+const dropBtnFiles = document.querySelectorAll('.file_drop');
 
+console.log(dropBtnFiles);
 
-let isHideOne = false;
-let isHideTwo = false;
-depthZeroTrigger.addEventListener('click', function(){
-  isHideOne = !isHideOne;
-  if(isHideOne){
-    depthOneEls.style.display = 'none';
-  }else{
-    depthOneEls.style.display = 'block';
-  }
-})
-depthOneTrigger[1].addEventListener('click', function(){
-  isHideTwo = !isHideTwo;
-  if(isHideTwo){
-    depthTwoEls.style.display = 'none';
-  }else{
-    depthTwoEls.style.display = 'block';
-  }
-})
-add_newproj.addEventListener('click',function (){
-  console.log('click add new!');
-})
-// add_newpixple.addEventListener('click',function () {
+let folderChildHide=[];
+let fileChildHide=[];
 
-// })
+for(let i=0; i<$('.folder').length; i++){
+  folderChildHide[i]=false;
+}
+for(i=0; i<$('.file').length; i++){
+  fileChildHide[i]=false;
+}
+
+folderEls.forEach(function (folderEl, index) {
+  folderEl.addEventListener('click',function(){
+    if(!folderChildHide[index]){
+      folderEl.classList.add(`folder-${index}`);
+      $(`.folder-${index}`).siblings().css("display","none");
+      folderChildHide[index]=true;
+    }else{
+      $(`.folder-${index}`).siblings().css("display","block");
+      folderEl.classList.remove(`folder-${index}`);
+      folderChildHide[index]=false;
+    }
+  });
+});
+
+fileEls.forEach(function (fileEl, index){
+  let dropBtn = dropBtnFiles[index];
+  dropBtn.addEventListener('click',function(){
+    if(!fileChildHide[index]){
+      fileEl.classList.add(`file-${index}`);
+      $(`.file-${index}`).siblings().css("display","none");
+      dropBtn.classList.remove('unactive');
+      fileChildHide[index]=true;
+    }else{
+      $(`.file-${index}`).siblings().css("display","flex");
+      fileEl.classList.remove(`file-${index}`);
+      dropBtn.classList.add('unactive');
+      fileChildHide[index]=false;
+    }
+  });
+})
+
+//WINDOW SYSTEM I DONT KNOW
