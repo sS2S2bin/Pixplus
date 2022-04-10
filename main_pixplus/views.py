@@ -7,15 +7,34 @@ from django.contrib import auth # for register
 from django.contrib.auth import login, authenticate # for register
 from django.contrib.auth.models import User # for register
 from django.utils import timezone
+import json
 
 
-# Create your views here.
+
+# 첫 화면
 def index(request):
     return render(request,'index.html')
 
 def newpixple(request):
     return render(request, 'register.html')
 
+#아이디 중복 체크
+def id_overlap_check(request):
+    username = request.GET.get('username')
+    try:
+        # 중복 검사 실패
+        user = User.objects.get(username=username)
+    except:
+        # 중복 검사 성공
+        user = None
+    if user is None:
+        overlap = 0 #pass 성공
+    else:
+        overlap = 1 #fail 실패
+    context = {'overlap': overlap}
+    return JsonResponse(context)
+
+# 회원가입
 def signup(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':
@@ -28,6 +47,8 @@ def signup(request):
             # 로그인 한다
             auth.login(request, user)
             return redirect('/')
+        else:
+            return render(request, 'register.html',{'message': 1})
     # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
     return render(request, 'register.html')
 
@@ -51,7 +72,7 @@ def login(request):
         # 존재하지 않는다면
         else:
             # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
-            return render(request, 'login.html', {'error' : 'username or password is incorrect.'})
+            return render(request, 'login.html', {'error' : 1})
     # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
     else:
         return render(request, 'login.html')
@@ -68,11 +89,12 @@ def logout(request):
 
 def create_proj(request):
     if request.method == 'POST':
-        # post = Post()
-        # post.proj_name = request.POST['proj_name']
-        # post.author = request.user
-        # post.created_at = timezone.datetime.now()
-        # post.save()
+        post = Project()
+        post.proj_name = request.POST['proj_name']
+        post.author = request.user
+        post.created_at = timezone.datetime.now()
+        post.updated_at = timezone.datetime.now()
+        post.save()
         return redirect('/')
     else:
         return render(request, 'index.html')

@@ -16,6 +16,7 @@
     <!--JS-->
     <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script defer src="{% static '/js/main.js' %}"></script>
+    <script defer src="{% static '/js/register.js' %}"></script>
 
     <!--글꼴-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -133,17 +134,24 @@
           <!--회원가입 폼-->
           <form method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
-            <p>username</p>
-            <input type="text" name="username">
-            <br>
-            <p>password</p>
-            <input type="text" name="password">
-            <br>
-            <p>confirm</p>
-            <input type="text" name="confirm">
-            <br>
-            <input type="submit" value="회원가입">
-        </form>
+            <fieldset class="signup_fieldset">
+              ID
+              <div class="idfield">
+                <input class="inputblank" type="text" name="username" placeholder="아이디" check_result="fail" required/>
+                <button class="btn" value="중복 확인" ></button>
+              </div>
+              <div class="idcheck">
+                <div class="id-success">아이디 사용 가능</div>
+                <div class="id-fail">아이디 사용 불가능</div>
+              </div>
+              PASSWORD 
+              <div class="pwfield">
+                <input class="inputblank" type="text" name="password" placeholder="비밀번호" />
+                <input class="inputblank" type="text" name="confirm" placeholder="비밀번호 확인" />
+              </div>
+            </fieldset>
+            <input class="btn" name="" type="submit" value="회원 가입" />
+          </form>
 
           </div>
         </div>
