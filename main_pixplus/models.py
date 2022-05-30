@@ -4,13 +4,24 @@ from pyexpat import model
 from statistics import mode
 from turtle import title
 from django.db import models
+from django.dispatch import receiver
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 import uuid
 
-class Userlist(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+class User(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
+    email = models.EmailField(max_length=100, unique=True, default='')
+    password = models.CharField(max_length=300)
+    class Meta:
+        db_table = 'users'
+    # user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user
 
 class AutoDateTimeField(models.DateTimeField):
     def pre_save(self, model_instance, add):
@@ -24,10 +35,10 @@ class Project(models.Model):
     updated_at = AutoDateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.proj_name()
+        return self.proj_name
     
-    class Meta:
-        ordering = ["-updated_at"]
+    # class Meta:
+    #     ordering = ["-updated_at"]
 
 
 
@@ -40,7 +51,10 @@ class Files(models.Model):
     comment = models.TextField('댓글',null=True)
     created_at = models.DateField(default=timezone.now)
     updated_at = AutoDateTimeField(default=timezone.now)
-
+    
+    def __str__(self):
+        return self.file_name
+        
 
 
 

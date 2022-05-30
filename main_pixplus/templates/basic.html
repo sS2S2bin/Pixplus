@@ -8,6 +8,7 @@
 
     {% load static %}
     <!--파비콘-->
+    <!--<link rel="shortcut icon" href="favicon.ico" />-->
     <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
     <!--브라우저 스타일 초기화-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
@@ -15,10 +16,11 @@
     <!--JS-->
     <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script defer src="{% static '/js/main.js' %}"></script>
+    <script defer src="{% static '/js/copy.js' %}"></script>
+
     <!--글꼴-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
-
 </head>
 <body>
     <div>

@@ -35,8 +35,9 @@
         <img src="{% static '/icon/icon_customurl.svg' %}" alt="">
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
-        <a href="{% url 'logout' %}">임시 로그아웃</a>
+        <a href="{% url 'logout' %}">
+          <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
+        </a>
       </div>
     </section>
     <!-- DIRECBAR -->
@@ -97,7 +98,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                LOGIN
+                <a class="file_link" href="{% url 'login' %}" target="_self">LOGIN</a>
               </div>
               <div class="file_drop unactive">
                 ▼
@@ -110,7 +111,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                Join PIX+
+                <a class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
               </div>
               <div class="file_drop unactive">
                 ▼
@@ -148,9 +149,10 @@
           </div>
           <div class="title">시작해볼까요 !</div>
           <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
             <fieldset class="login_fieldset">
-              ID <input class="inputblank" type="text" name="id" placeholder="아이디"/>
-              PASSWORD <input class="inputblank" type="text" name="pw" placeholder="비밀번호"/>
+              ID <input class="inputblank" type="text" name="username" placeholder="아이디"/>
+              PASSWORD <input class="inputblank" type="password" name="password" placeholder="비밀번호"/>
             </fieldset>
             <input class="btn" type="submit" value="로그인"/>
           </form>
