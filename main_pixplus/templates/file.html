@@ -1,29 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "basic.html" %}
+{% block contents %}
+{% load static %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Pix+</title>
-    {% load static %}
-    <!--파비콘-->
-    <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
-    <!--브라우저 스타일 초기화-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-    <link rel="stylesheet" href="{% static '/css/index.css' %}" />
-    <!--JS-->
-    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script defer src="{% static '/js/main.js' %}"></script>
-    <script defer src="{% static '/js/register.js' %}"></script>
-
-    <!--글꼴-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="container">
+<div class="container">
     <!-- ICONBAR -->
     <section class="box iconbar">
       <div class="icon_news">
@@ -36,21 +15,39 @@
         <img src="{% static '/icon/icon_customurl.svg' %}" alt="">
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="">
+        <a href="{% url 'logout' %}">
+            <img src="{% static '/icon/icon_logout.svg' %}" alt="">
+        </a>
+
       </div>
     </section>
     <!-- DIRECBAR -->
     <section class="box direcbar">
       <div class="inner_top esamanru_light">
-        <div>: welcome to pix+</div>
+        <div>
+            
+            {% if user.is_authenticated %}
+            {{ user.username }}, 님 환영합니다.
+            {% else %}
+            : welcome to pix+
+            {% endif %}
+        </div>
       </div>
       <nav class="inner_body">
+
+        {% comment %} <a href="{% url 'addnewproj' %}">
+            <img src="{% static '/icon/icon_logout.svg' %}" alt="">
+        </a>
+        <a href="{% url 'addnewfile' %}">
+            <img src="{% static '/icon/icon_logout.svg' %}" alt="">
+        </a> {% endcomment %}
+
         <div class="proj">
 
           <div class="folder direcbox">
             <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
             <div class="folder_text esamanru_regul">
-              픽쁠입니다
+                2022년 1학기
             </div>
           </div>
 
@@ -72,7 +69,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                How to?
+                MR &amp; 미디어 
               </div>
               <div class="file_drop unactive">
                 ▼
@@ -81,13 +78,13 @@
             <div class="index direcbox">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <div class="index_text">
-                01. 기능
+                01. 개념
               </div>
             </div>
             <div class="index direcbox">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <div class="index_text">
-                02. 혜택
+                02. 적용사례
               </div>
             </div>
           </div>
@@ -97,7 +94,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                <a class="file_link" href="{% url 'login' %}" target="_self">LOGIN</a>
+                딥러닝
               </div>
               <div class="file_drop unactive">
                 ▼
@@ -110,7 +107,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                <a class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
+                취업 정보
               </div>
               <div class="file_drop unactive">
                 ▼
@@ -130,7 +127,7 @@
           <!--제목부분네모-->
           <img class="mdicon tab_icon" src="{% static '/icon/file.svg' %}" alt="">
           <div class="tab_text">
-            Hello Pix+!
+            MR &amp; 미디어 
           </div>
           <div class="closeBtn">X</div>
         </div>
@@ -138,45 +135,66 @@
         <!--제목옆에세모-->
       </div>
 
-      <div class="inner_body">
+    <div class="inner_body">
+        <div class="block_container">
+            <div class="text_block">
+            <span class="title">
+                01. 개념
+            </span>
+                <br>
+                반복되는 Ctrl+C Ctrl+V .. 워드 올려 🏴 웹 내려 🏳️ 다시 워드 올리지말고 메모장 올려 🏴
+                <br>
+                아까 본 그 자료.. 어딨지?! 탭이 너무 많아 😵💫
 
-        <div class="block_container signup_block">
-          <div class="logo block_container">
-            <div class="logo_block">
-              <img src="{% static '/icon/logo_pixel.svg' %}" alt="">
+                <table> 
+                    <tr> 
+                    <td onCopy='javascript:contents_cp();'> 
+                    마우스 드래그 복사시 출처 자동복사<br> 
+                    onCopy='javascript:contents_cp();'를 div,span,td,p...... 태그등에 넣어주세요.<br> 
+                    </td> 
+                    </tr> 
+                    </table>
             </div>
-          </div>
-          <div class="title">얼마 안걸려요 !</div>
-          <div class="error_message">
-            <!-- {{ message }} -->
-          </div>
-          <form id="join_form" method="POST" action="{% url 'signup' %}">
-            {% csrf_token %}
-            <fieldset class="signup_fieldset">
-              ID
-              <div class="idfield">
-                <input class="inputblank" type="text" name="username" placeholder="아이디" check_result="fail" required/>
-                <input class="btn" type="button" name="idcheck" value="CHECK"/>
-              </div>
-              <div class="idcheck">
-                <div class="id-success">아이디 사용 가능</div>
-                <div class="id-fail">아이디 사용 불가능</div>
-              </div>
-              PASSWORD 
-              <div class="pwfield">
-                <input class="inputblank" type="password" name="password" placeholder="비밀번호" />
-                <input class="inputblank" type="password" name="confirm" placeholder="비밀번호 확인" />
-              </div>
-            </fieldset>
-            <input class="btn" type="submit" value="회원 가입" id_check_result="fail"/>
-            <!-- <input class="btn" name="" type="submit" value="회원 가입" /> -->
-          </form>
         </div>
-      </div>
+
+        <div class="block_container">
+            <div class="text_block">
+            <span class="title">
+                02. 적용사례
+            </span>
+                <br>
+                ## 보로디노 전투 파노라마(1812)
+
+                파노라마로 사람을 감싸 이 전투를 사람들이 하여금 놓여져있는 기분이 들게함. 
+                <br>
+
+                ## 입체시 이론 등장 - Charles Wheatstone (1802-1875)
+
+                입체시 이론 : 단순히 작아져서 X , 나만의 시차가 존재, 깊이감을 느껴 입체감을 느낄 수 있다.
+
+                → 오른쪽 눈, 왼쪽 눈이 볼 수 있는 시야각
+
+                → 구도가 다른 사진을 각 각 오른쪽 왼쪽 눈 바로 앞에서 보여줌. 시차발생 !
+                <br>
+
+                **깊이감의 시초**
+
+                입체시이론 → 개발 : Stereoscope(입체감) 19C
+
+                카드보드
+                <br>
+
+                ## 현대와 비슷한 사고 - Stanley G. Weinbaum (1902-1935)
+
+                오감을 느낄 수 있는 고글이 등장하는 소설을 쓴 작가. 
+
+                비슷한 환경에 대해 상상 😵💫
+            </div>
+        </div>
+    </div>
+
+
     </section>
 
-  </div>
+{% endblock %}
 
-</body>
-
-</html>

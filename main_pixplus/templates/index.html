@@ -35,8 +35,7 @@
         <img src="{% static '/icon/icon_customurl.svg' %}" alt="">
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
-        <a href="{% url 'logout' %}">임시 로그아웃</a>
+        <a href="{% url 'logout' %}"><img src="{% static '/icon/icon_logout.svg' %}" alt="" ></a>
       </div>
     </section>
     <!-- DIRECBAR -->
@@ -110,7 +109,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                <a class="file_link" href="{% url 'signup' %}" target="_self">Join PIX+</a>
+                <a class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
               </div>
               <div class="file_drop unactive">
                 ▼
