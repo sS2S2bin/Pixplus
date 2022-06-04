@@ -1,0 +1,65 @@
+@import url(./index.css);
+
+.url_form{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  border: 2px solid #1d1e1f;
+}
+.url_blank{
+  font-family: 'GongGothicLight';
+  font-size: calc(12px + 0.4vw);
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-right: 2px solid #1d1e1f;
+
+}
+.url_blank:focus{
+  outline: none;
+  border-radius: 0;
+}
+.url_btn{
+  background-color: #d2d6da;
+  border: none;
+}
+.search_icon{
+  padding-right: 10px;
+  background-color: #d2d6da;
+}
+.latest_url{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 50px;
+}
+.latest_url-text{
+  font-family: 'GongGothicMedium';
+}
+.latest_url-link{
+  display: flex;
+}
+.url_block{
+  width: 150px;
+  height: 150px;
+  margin: 30px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.url_icon{
+  background: #FBFBFB;
+  border: 1px dashed #787D82;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 0px #D2D6DA;
+  width: 100px;
+  height: 100px;
+}
+.url_text{
+  font-family: 'GongGothicLight';
+  margin-top: 10px;
+}

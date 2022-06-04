@@ -12,7 +12,7 @@
     <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
     <!--브라우저 스타일 초기화-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-    <link rel="stylesheet" href="{% static '/css/index.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/url.css' %}" />
     <!--JS-->
     <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script defer src="{% static '/js/main.js' %}"></script>
@@ -42,7 +42,7 @@
     <!-- DIRECBAR -->
     <section class="box direcbar">
       <div class="inner_top esamanru_light">
-        <div><a href="{% url 'file1' %}" target="_self">: welcome to pix+</a></div>
+        <div>: welcome to pix+</div>
       </div>
       <nav class="inner_body">
         <div class="proj">
@@ -134,35 +134,34 @@
             <img src="{% static '/icon/logo_pixel.svg' %}" alt="">
           </div>
         </div>
-        <div class="block_container">
-          <div class="text_block">
-            <span class="title">
-              첫 번째 시작은, 여러분들의 프로젝트 !
-          </span>
-              <br>
-              반복되는 Ctrl+C Ctrl+V .. 워드 올려 🏴 웹 내려 🏳️ 다시 워드 올리지말고 메모장 올려 🏴
-              <br>
-              아까 본 그 자료.. 어딨지?! 탭이 너무 많아 😵💫
-          </div>
-        </div>
-        <div class="block_container">
-          <div class="text_block">
-            <span class="title">
-              이제 그-만
-            </span>
-            <br>
-            💁🏻 Pix+ 프로젝트에 필요한 소스를 모으고 똑똑하게 정리 하세요.
-            <br>
-            여러분이 해야할 일은 <span class="highlight_yellow">오직 검색하고, Drag</span>하기. 
-            <br>
-            인덱스 Clik 한번에 자료로 이동하기 ! 손 쉬운 출처 복사까지 다 저희가 돕겠습니다 😉
-          </div>
-          <div class="comment_block">
-            <div class="comment">
-                ㄴ 이제 자료조사 편하고 똑똑하게 합시다 🤓
+        <form class="url_form" action="#">
+          <input class="url_blank" type="text" name="url" placeholder="이동할 URL 주소를 입력하세요"/>
+          <input class="url_btn" type="submit" value=""/>
+          <img class="search_icon" src="{% static '/icon/search.svg' %}" alt="">
+        </form>
+
+        <div class="latest_url">
+          <div class="latest_url-text">최근 접속 URL</div>
+          <div class="latest_url-link">
+
+            <div class="url_block">
+              <div class="url_icon">
+  
+              </div>
+              <div class="url_text">
+                학술정보관
+              </div>
             </div>
+            <div class="url_block">
+              <div class="url_icon">
+  
+              </div>
+              <div class="url_text">
+                개인브런치
+              </div>
+            </div>
+
           </div>
-          
         </div>
       </div>
     </section>
