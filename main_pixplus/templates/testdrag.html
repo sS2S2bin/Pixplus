@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Pix+</title>
 
-    {% load static %}
-    <!--파비콘-->
-    <!--<link rel="shortcut icon" href="favicon.ico" />-->
-    <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
-    <!--브라우저 스타일 초기화-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-    <link rel="stylesheet" href="{% static '/css/index.css' %}" />
-    <!--JS-->
-    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script defer src="{% static '/js/main.js' %}"></script>
+  {% load static %}
+  <!--파비콘-->
+  <!--<link rel="shortcut icon" href="favicon.ico" />-->
+  <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
+  <!--브라우저 스타일 초기화-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+  <link rel="stylesheet" href="{% static '/css/news.css' %}" />
+  <!--JS-->
+  <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script defer src="{% static '/js/main.js' %}"></script>
 
-    <!--글꼴-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
+  <!--글꼴-->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
   <div class="container">
     <!-- ICONBAR -->
@@ -35,14 +37,14 @@
         <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
+        <img src="{% static '/icon/icon_logout.svg' %}" alt="">
         <a href="{% url 'logout' %}">임시 로그아웃</a>
       </div>
     </section>
     <!-- DIRECBAR -->
     <section class="box direcbar">
       <div class="inner_top esamanru_light">
-        <div><a href="{% url 'file1' %}" target="_self">: welcome to pix+</a></div>
+        <div>: welcome to pix+</div>
       </div>
       <nav class="inner_body">
         <div class="proj">
@@ -128,45 +130,16 @@
         </div>
         <div class="tab_deco"></div>
       </div>
+
       <div class="inner_body">
-        <div class="logo block_container">
-          <div class="logo_block">
-            <img src="{% static '/icon/logo_pixel.svg' %}" alt="">
-          </div>
-        </div>
-        <div class="block_container">
-          <div class="text_block">
-            <span class="title">
-              첫 번째 시작은, 여러분들의 프로젝트 !
-          </span>
-              <br>
-              반복되는 Ctrl+C Ctrl+V .. 워드 올려 🏴 웹 내려 🏳️ 다시 워드 올리지말고 메모장 올려 🏴
-              <br>
-              아까 본 그 자료.. 어딨지?! 탭이 너무 많아 😵💫
-          </div>
-        </div>
-        <div class="block_container">
-          <div class="text_block">
-            <span class="title">
-              이제 그-만
-            </span>
-            <br>
-            💁🏻 Pix+ 프로젝트에 필요한 소스를 모으고 똑똑하게 정리 하세요.
-            <br>
-            여러분이 해야할 일은 <span class="highlight_yellow">오직 검색하고, Drag</span>하기. 
-            <br>
-            인덱스 Clik 한번에 자료로 이동하기 ! 손 쉬운 출처 복사까지 다 저희가 돕겠습니다 😉
-          </div>
-          <div class="comment_block">
-            <div class="comment">
-                ㄴ 이제 자료조사 편하고 똑똑하게 합시다 🤓
-            </div>
-          </div>
-          
-        </div>
+        <p class="target">드래그 테스트 중입니다 드래그 테스트 중입니다</p>
+        <div class="result"></div>
+        <iframe id="screen" class="screen" src="https://news.kbs.co.kr/news/view.do?ncd=5469553" width="100%" height="100%" type="text/html" draggable="true">
+        </iframe>
       </div>
     </section>
   </div>
 
 </body>
+
 </html>

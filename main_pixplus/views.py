@@ -14,6 +14,18 @@ def index(request):
 def newpixple(request):
     return render(request, 'register.html')
 
+def customurl(request):
+    return render(request,'customurl.html')
+
+def news(request):
+    return render(request, 'news.html')
+
+def file1(request):
+    return render(request,'first_file1.html')
+
+def testdrag(request):
+    return render(request,'testdrag.html')
+
 def signup(request):
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
     if request.method == 'POST':

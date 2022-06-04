@@ -9,4 +9,8 @@ urlpatterns = [
     path('signup', views.signup, name='signup'), #회원가입 폼 함수 연결
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
+    path('customurl',views.customurl, name='customurl'),
+    path('news',views.news, name='news'),
+    path('file1',views.file1, name='file1'),
+    path('testdrag',views.testdrag, name='testdrag')
 ]
