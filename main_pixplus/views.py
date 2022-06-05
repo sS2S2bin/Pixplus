@@ -15,7 +15,7 @@ from django.db import models
 import logging
 import json
 
-from main_pixplus.models import Project
+from main_pixplus.models import *
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +46,18 @@ def id_overlap_check(request):
     print("==overlapend===")
     return JsonResponse(context)
 
-# 회원가입
+def customurl(request):
+    return render(request,'customurl.html')
+
+def news(request):
+    return render(request, 'news.html')
+
+def file1(request):
+    return render(request,'first_file1.html')
+
+def testdrag(request):
+    return render(request,'testdrag.html')
+
 def signup(request):
     print("====signup 함수 들어옴====")
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.

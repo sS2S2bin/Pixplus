@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Pix+</title>
+
+    {% load static %}
+    <!--파비콘-->
+    <!--<link rel="shortcut icon" href="favicon.ico" />-->
+    <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
+    <!--브라우저 스타일 초기화-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link rel="stylesheet" href="{% static '/css/first_file.css' %}" />
+    <!--JS-->
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script defer src="{% static '/js/main.js' %}"></script>
+    
+    <!--글꼴-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <!-- ICONBAR -->
+    <section class="box iconbar">
+      <div class="icon_news">
+        <a href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
+      </div>
+      <div class="icon_paper">
+        <img src="{% static '/icon/icon_paper.svg' %}" alt="">
+      </div>
+      <div class="icon_url">
+        <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
+      </div>
+      <div class="icon_logout">
+        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
+        <a href="{% url 'logout' %}">임시 로그아웃</a>
+      </div>
+    </section>
+    <!-- DIRECBAR -->
+    <section class="box direcbar">
+      <div class="inner_top esamanru_light">
+        <div><a href="{% url 'file1' %}" target="_self">: welcome to pix+</a></div>
+      </div>
+      <nav class="inner_body">
+        <div class="proj">
+
+          <div class="folder direcbox">
+            <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
+            <div class="folder_text esamanru_regul">
+              픽쁠입니다
+            </div>
+          </div>
+
+          <div class="file direcbox">
+            <div class="file_line">
+              <div class="file_drop unactive">
+                ▼
+              </div>
+              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
+              <div class="file_text">
+                Hello Pix+!
+              </div>
+            </div>
+          </div>
+
+          <div class="file direcbox">
+            <div class="file_line">
+              <div class="file_drop active">
+                ▼
+              </div>
+              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
+              <div class="file_text">
+                How to?
+              </div>
+            </div>
+            <div class="index direcbox">
+              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="index_text">
+                01. 기능
+              </div>
+            </div>
+            <div class="index direcbox">
+              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="index_text">
+                02. 혜택
+              </div>
+            </div>
+          </div>
+
+          <div class="file direcbox">
+            <div class="file_line">
+              <div class="file_drop unactive">
+                ▼
+              </div>
+              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
+              <div class="file_text">
+                LOGIN
+              </div>
+            </div>
+          </div>
+
+          <div class="file direcbox">
+            <div class="file_line">
+              <div class="file_drop unactive">
+                ▼
+              </div>
+              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
+              <div class="file_text">
+                Join PIX+
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    </section>
+    <!-- MAINWINDOW -->
+    <section class="box window_main">
+      <div class="inner_top">
+        <div class="tab_title">
+          <img class="mdicon tab_icon" src="{% static '/icon/file.svg' %}" alt="">
+          <div class="tab_text">
+            Hello Pix+!
+          </div>
+        </div>
+        <div class="tab_deco"></div>
+      </div>
+      <div class="inner_body">
+        <div class="tool_block">
+          <div class="tool">
+            <img src="{% static '/icon/pointing_active.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img src="{% static '/icon/bold_disable.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img src="{% static '/icon/eraser_disable.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img src="{% static '/icon/choose_disable.svg' %}" alt="">
+          </div>
+        </div>
+        <div class="file_block">
+          <div class="file_index">01. 첫 번째 인덱스를 추가해보세요.</div>
+          <div class="file_content">
+            <div class="content-text">
+              이 본문은 다음과 같은 속성을 띄고 있습니다.<br/>
+              Noto Sans 폰트 중 Light를 사용했으며, 크기는 16px 입니다.<br/>
+              <span class="text--bold">Bold</span> 체를 사용할 경우, <span class="text--md">Medium</span>으로 바꿔주세요.<br/>
+              추가적으로 인덱스의 속성은 Bold, 24px 입니다.<br/>
+              한 문장을 더 적어볼게요.
+            </div>
+            <div class="content-option">
+              <div class="option copy-url btn">Copy URL
+                <span class="url-tooltip">
+                  <span class="url-tooltip-text">(복사되는 URL1 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option copy-res">Copy 출처
+                <span class="res-tooltip">
+                  <span class="res-tooltip-text">(복사되는 출처1 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option commentBtn">Comment</div>
+              <div class="option">Delete</div>
+            </div>
+          </div>
+          <div class="content-comment-box">
+            <!-- <form class="content-comment">
+            <input id="commentInput" type="text" placeholder="comment를 입력해 주세요.">
+            <button id="commentSubmit" type="submit">등록</button>
+            </form> -->
+          </div>
+          <div class="file_content">
+            <div class="content-text">
+              마우스의 커서를 올리고 내릴 때의 버튼들의 변화를 확인해보세요.<br/>
+              마우스를 올렸을 때 오른쪽 버튼들의 바탕색과 폰트 색깔이 바뀌는 것을 확인하셨나요?<br/>
+              예시는 이 내용박스의 Delete입니다. 마우스를 올렸을 때의 속성은 다음과 같습니다.<br/>
+              폰트의 색상은 #fbfbfb이며, 폰트의 테두리는 787D82,<br/>
+              바탕색의 색상은 D2D6DA입니다.
+            </div>
+            <div class="content-option">
+              <div class="option copy-url">Copy URL
+                <span class="url-tooltip">
+                  <span class="url-tooltip-text">(복사되는 URL2 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option copy-res">Copy 출처
+                <span class="res-tooltip">
+                  <span class="res-tooltip-text">(복사되는 출처2 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option commentBtn">Comment</div>
+              <div class="option">Delete</div>
+            </div>
+          </div>
+          <div class="content-comment-box">
+            <!-- <form class="content-comment">
+            <input id="commentInput" type="text" placeholder="comment를 입력해 주세요.">
+            <button id="commentSubmit" type="submit">등록</button>
+            </form> -->
+          </div>
+        </div>
+        <div class="file_block">
+          <div class="file_index">02. 두 번째 인덱스입니다.</div>
+          <div class="file_content">
+            <div class="content-text">
+              이 본문은 다음과 같은 속성을 띄고 있습니다.<br/>
+              Noto Sans 폰트 중 Light를 사용했으며, 크기는 16px 입니다.<br/>
+              <span class="text--bold">Bold</span> 체를 사용할 경우, <span class="text--md">Medium</span>으로 바꿔주세요.<br/>
+              추가적으로 인덱스의 속성은 Bold, 24px 입니다.<br/>
+              한 문장을 더 적어볼게요.
+            </div>
+            <div class="content-option">
+              <div class="option copy-url">Copy URL
+                <span class="url-tooltip">
+                  <span class="url-tooltip-text">https://www.naver.com</span>
+                </span>
+              </div>
+              <div class="option copy-res">Copy 출처
+                <span class="res-tooltip">
+                  <span class="res-tooltip-text">(복사되는 출처3 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option commentBtn">Comment</div>
+              <div class="option">Delete</div>
+            </div>
+          </div>
+          <div class="content-comment-box">
+            <!-- <form class="content-comment">
+            <input id="commentInput" type="text" placeholder="comment를 입력해 주세요.">
+            <button id="commentSubmit" type="submit">등록</button>
+            </form> -->
+          </div>
+        </div>
+
+        <section class="alert-box alert-box-url">
+          <div class="alert-content">
+            URL이 복사되었습니다.
+          </div>
+        </section>
+        <section class="alert-box alert-box-res">
+          <div class="alert-content">
+            출처가 복사되었습니다.
+          </div>
+        </section>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

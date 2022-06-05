@@ -1,0 +1,183 @@
+@import url(./index.css);
+.container .window_main .inner_body {
+  position: relative;
+  padding-top: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.tool_block{
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color:#fbfbfb;
+  border: 1.5px solid #D2D6DA;
+  box-shadow: 3px 3px 0px #D2D6DA;
+  padding: 4px;
+}
+
+.tool{
+  width: 24px;
+  height: 24px;
+  margin: 6px;
+}
+
+.text--bold{
+  font-weight: 700;
+}
+
+.text--md{
+  font-weight: 500;
+}
+
+.file_block{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: left;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1250px;
+
+  margin-top: 50px;
+}
+
+.file_index{
+  font-weight: 600;
+  font-size: calc(24px + 0.1vw);
+  margin-bottom: 20px;
+}
+
+.file_content{
+  height: max-content;
+  width: 100%;
+  margin: 10px 0px;
+
+  background-color: #fbfbfb;
+  border: 2px solid #787d82;
+  border-left: 12px solid #1d1e1f;
+  box-shadow: 3px 3px 0px #D2D6DA;
+
+  display: flex;
+}
+
+.content-text{
+  height: 100%;
+  width: 85%;
+  padding: 10px;
+  line-height: 24px;
+
+  font-weight: 500;
+}
+
+.content-option{
+  height: 100%;
+  width: 15%;
+  border-left: 1.5px dashed #787d82;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.option{
+  flex-basis: 0;
+  flex-grow: 1;
+  border-bottom:1.5px dashed #787d82;
+  color: #787d82;
+  font-family: 'GongGothicMedium';
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.url-tooltip,
+.res-tooltip{
+  display: inline-block;
+}
+
+.url-tooltip-text,
+.res-tooltip-text{
+  display: none;
+  position: absolute;
+  max-width: 200px;
+  border: 1px solid #1d1e1f;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 0.8em;
+  color: #1d1e1f;
+  background: #fbfbfb;
+  box-shadow: 3px 3px 0px #D2D6DA;
+}
+
+.option:first-child:hover .url-tooltip-text,
+.option:nth-child(2):hover .res-tooltip-text{
+  display: block;
+  text-shadow: none;
+}
+
+.option:hover{
+  background-color: #D2D6DA;
+  color: #fbfbfb;
+  text-shadow: -1px 0 #787D82, 0 1px #787d82, 1px 0 #787D82, 0 -1px #787d82;
+}
+
+.option:last-child{
+  border: none;
+}
+
+.content-comment{
+  display: flex;
+  width: 100%;
+  background: #D2D6DA;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#commentInput{
+  font-family: 'GongGothicLight';
+  font-size: 14px;
+  padding: 6px;
+  width: 90%;
+  background-color: transparent;
+  border: none;
+}
+
+#commentSubmit{
+  font-family: 'GongGothicLight';
+  font-size: 14px;
+  padding: 6px;
+  width: 10%;
+  color: white;
+  background-color: #787d82;
+  border: none;
+  border-radius: 5px;
+}
+
+#commentSubmit:hover{
+  text-shadow: -1px 0 #1d1e1f, 0 1px #1d1e1f, 1px 0 #1d1e1f, 0 -1px #1d1e1f;
+}
+
+.alert-box{
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: 300px;
+  padding: 10px;
+  text-align: center;
+  color: #1d1e1f;
+  background-color: #fbfbfb;
+  box-shadow: 3px 3px 0px #D2D6DA;
+  border: 2px solid #D2D6DA;
+  font-weight: bold;
+
+  display: none;
+}

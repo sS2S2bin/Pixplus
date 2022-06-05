@@ -23,7 +23,7 @@
 /* COMMON */
 
 body {
-  background: url(/static/img/img_background_pattern1.png), #787D82;
+  background: url(../img/img_background_pattern1.png), #787D82;
   background-size: 20px;
   background-repeat: repeat;
   font-family: 'GongGothicLight';
@@ -205,18 +205,9 @@ img {
 }
 
 .direcbar .inner_body .file .file_line .file_drop {
-  position: absolute;
-  right: 5px;
+  margin-right: 10px;
 }
 
-.direcbar .inner_body .file .file_line .file_drop.unactive {
-  color: lightgray;
-}
-
-.file_link{
-  text-decoration: none;
-  color:#1d1e1f;
-}
 
 /* MAINWINDOW */
 .container .window_main {
@@ -259,7 +250,7 @@ img {
 
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 8px 12px;
 }
 
 .container .window_main .inner_top .tab_title .tab_text {
@@ -269,13 +260,13 @@ img {
 
 .container .window_main .inner_top .tab_title .closeBtn {
   position: absolute;
-  right: 5px;
+  right: 8px;
+  font-size: 12px;
 }
 
 .container .window_main .inner_top .tab_deco {
   flex-basis: 0;
   flex-grow: 130;
-  background: url("/static/img/polygon.svg");
   background-size: cover;
 }
 
@@ -284,6 +275,7 @@ img {
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  overflow-y: scroll;
 }
 
 /* .container .window_main .inner_body  */
@@ -342,162 +334,3 @@ img {
 }
 
 
-/* LOGIN WINDOW */
-.logo_login {
-  margin: auto;
-}
-
-.login_block{
-  margin: auto;
-  display: flex;
-  align-items: center;
-  font-family: 'GongGothicLight';
-}
-
-.login_block .title{
-  margin-bottom: 20px;
-}
-
-.login_block form{
-  width: 30%;
-  max-width: 400px;
-  padding: 40px;
-  border: 1px solid #787D82;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.login_block form .login_fieldset{
-  font-family: 'GongGothicMedium';
-  font-size: calc(14px + 0.4vw);
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.login_block form .login_fieldset input {
-  background: #FBFBFB;
-  border: 1px dashed #787D82;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 0px #D2D6DA;
-}
-
-.login_block form .login_fieldset .inputblank {
-  font-family: 'GongGothicLight';
-  font-size: calc(12px + 0.4vw);
-  padding: 10px;
-  margin: 10px 0 20px 0;
-}
-
-.login_block form .btn{
-  width: 100%;
-  background: #D2D6DA;
-  border: 3px outset #E5E5E5;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 0px #D2D6DA;
-
-  font-family: 'GongGothicLight';
-  padding: 10px;
-  font-size: calc(12px + 0.4vw);
-}
-
-form .btn:active{
-  border: 3px inset #E5E5E5;
-}
-
-
-
-
-/* SIGNUP WINDOW */
-.signup_block{
-  margin: auto;
-  display: flex;
-  align-items: center;
-  font-family: 'GongGothicLight';
-}
-
-.signup_block .title{
-  margin-bottom: 20px;
-}
-
-.signup_block form{
-  width: 30%;
-  max-width: 400px;
-  min-width: 300px;
-  padding: 40px;
-  border: 1px solid #787D82;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.signup_block form .signup_fieldset{
-  font-family: 'GongGothicMedium';
-  font-size: calc(14px + 0.4vw);
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.signup_fieldset .inputblank{
-  background: #FBFBFB;
-  border: 1px dashed #787D82;
-  padding: 10px;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 0px #D2D6DA;
-  font-size: calc(12px + 0.4vw);
-  font-family: 'GongGothicLight';
-  margin-top: 10px;
-}
-
-.idfield{
-  display: flex;
-  
-}
-.idfield .inputblank{
-  flex-grow:2;
-  margin-right: 10px;
-}
-.idfield .btn{
-  flex-grow: 1;
-  margin-top: 10px;
-
-  background: #D2D6DA;
-  border: 3px outset #E5E5E5;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 0px #D2D6DA;
-
-  font-size: calc(8px + 0.4vw);
-  font-family: 'GongGothicLight';
-}
-.idcheck{
-  position: relative;
-  font-size: calc(8px + 0.4vw);
-  font-family: 'GongGothicLight';
-  margin-bottom: 30px;
-}
-.idcheck .id-success{
-  width: max-content;
-  position: absolute;
-  top: 10px;
-  right: 0;
-  color:green;
-}
-.idcheck .id-fail{
-  width: max-content;
-  position: absolute;
-  top: 10px;
-  right: 0;
-  color:red;
-}
-.pwfield .inputblank{
-  width: 100%;
-}
-input.btn{
-  width: 100%;
-  background: #D2D6DA;
-  border: 3px outset #E5E5E5;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 0px #D2D6DA;
-
-  font-family: 'GongGothicLight';
-  padding: 10px;
-  font-size: calc(12px + 0.4vw);
-}
