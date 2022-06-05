@@ -16,6 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent
 
+AUTH_USER_MODEL = 'main_pixplus.User'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -119,8 +120,60 @@ USE_TZ = True
 # STATIC_URL = [os.path.join(BASE_DIR, '/main_pixplus/static'),]
 
 STATIC_URL = 'static/'
+LOGIN_URL = '/login/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# logging
+LOGGING = {
+    'version': 1,
+    # 기존의 로깅 설정을 비활성화 할 것인가?
+    'disable_existing_loggers': False,
+
+    # 포맷터
+    # 로그 레코드는 최종적으로 텍스트로 표현됨
+    # 이 텍스트의 포맷 형식 정의
+    # 여러 포맷 정의 가능
+    'formatters': {
+        'format': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+
+    # 핸들러
+    # 로그 레코드로 무슨 작업을 할 것인지 정의
+    # 여러 핸들러 정의 가능
+    'handlers': {
+        # 로그 파일을 만들어 텍스트로 로그레코드 저장
+        # 'file': {
+        #     'level': 'DEBUG',
+        #     'class': 'logging.FileHandler',
+        #     'filename': os.path.join(BASE_DIR, 'logs/logfile'),
+        #     'formatter': 'format1',
+        # },
+        # 콘솔(터미널)에 출력
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'format',
+        }
+    },
+
+    # 로거
+    # 로그 레코드 저장소
+    # 로거를 이름별로 정의
+    # 'loggers': {
+    #     'polls': {
+    #         'handlers': ['file'],
+    #         'level': 'DEBUG',
+    #     },
+    #     'books': {
+    #         'handlers': ['console'],
+    #         'level': 'DEBUG',
+    #     }
+    # },
+
+}

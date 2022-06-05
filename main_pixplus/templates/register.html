@@ -6,21 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Pix+</title>
+    {% load static %}
+    <!--파비콘-->
+    <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
+    <!--브라우저 스타일 초기화-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+    <link rel="stylesheet" href="{% static '/css/index.css' %}" />
+    <!--JS-->
+    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script defer src="{% static '/js/main.js' %}"></script>
+    <script defer src="{% static '/js/register.js' %}"></script>
 
-  {% load static %}
-  <!--파비콘-->
-  <!--<link rel="shortcut icon" href="favicon.ico" />-->
-  <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
-  <!--브라우저 스타일 초기화-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-  <link rel="stylesheet" href="{% static '/css/index.css' %}" />
-  <!--JS-->
-  <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script defer src="{% static '/js/main.js' %}"></script>
-
-  <!--글꼴-->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
+    <!--글꼴-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
@@ -111,7 +110,7 @@
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                <a class="file_link" href="{% url 'signup' %}" target="_self">Join PIX+</a>
+                <a class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
               </div>
               <div class="file_drop unactive">
                 ▼
@@ -148,13 +147,16 @@
             </div>
           </div>
           <div class="title">얼마 안걸려요 !</div>
-          <form method="POST" action="{% url 'signup' %}">
+          <div class="error_message">
+            <!-- {{ message }} -->
+          </div>
+          <form id="join_form" method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
             <fieldset class="signup_fieldset">
               ID
               <div class="idfield">
                 <input class="inputblank" type="text" name="username" placeholder="아이디" check_result="fail" required/>
-                <input class="btn" type="button" value="false">CHECK</input>
+                <input class="btn" type="button" name="idcheck" value="CHECK"/>
               </div>
               <div class="idcheck">
                 <div class="id-success">아이디 사용 가능</div>
@@ -162,31 +164,16 @@
               </div>
               PASSWORD 
               <div class="pwfield">
-                <input class="inputblank" type="text" name="password" placeholder="비밀번호" />
-                <input class="inputblank" type="text" name="confirm" placeholder="비밀번호 확인" />
+                <input class="inputblank" type="password" name="password" placeholder="비밀번호" />
+                <input class="inputblank" type="password" name="confirm" placeholder="비밀번호 확인" />
               </div>
             </fieldset>
-            <input class="btn" name="" type="submit" value="회원 가입" />
+            <input class="btn" type="submit" value="회원 가입" id_check_result="fail"/>
+            <!-- <input class="btn" name="" type="submit" value="회원 가입" /> -->
           </form>
         </div>
       </div>
     </section>
-
-
-    <!--회원가입 폼-->
-    <!-- <form method="POST" action="{% url 'signup' %}">
-            {% csrf_token %}
-            <p>username</p>
-            <input type="text" name="username">
-            <br>
-            <p>password</p>
-            <input type="text" name="password">
-            <br>
-            <p>confirm</p>
-            <input type="text" name="confirm">
-            <br>
-            <input type="submit" value="회원가입">
-        </form> -->
 
   </div>
 
