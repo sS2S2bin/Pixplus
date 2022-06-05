@@ -35,8 +35,9 @@
         <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
-        <a href="{% url 'logout' %}">임시 로그아웃</a>
+        <a href="{% url 'logout' %}">
+          <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
+        </a>
       </div>
     </section>
     <!-- DIRECBAR -->

@@ -15,5 +15,5 @@ urlpatterns = [
     path('testdrag',views.testdrag, name='testdrag'),
     path('id_overlap_check', views.id_overlap_check, name='id_overlap_check'),
     path('create_proj', views.create_proj, name='create_proj'),
-    path('addnewfile', views.create_file, name='addnewfile'),
+    path('create_file', views.create_file, name='create_file'),
 ]
