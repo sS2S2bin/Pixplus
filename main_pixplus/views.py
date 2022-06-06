@@ -19,6 +19,9 @@ import json
 from .models import *
 from main_pixplus.models import *
 
+# from django.core import serializers
+# from .serializers import FileSerializer, ProjectSerializer
+
 logger = logging.getLogger(__name__)
 
 # 첫 화면
@@ -87,8 +90,7 @@ def signup(request):
             # user = User.objects.get(pk = user_id)
             user = User.objects.order_by('-pk')[0]
             proj.author = user
-            proj.created_at = timezone.datetime.now()
-            proj.updated_at = timezone.datetime.now()
+
             proj.save()
             print("proj save success---------")
             file = Files()
@@ -97,8 +99,7 @@ def signup(request):
             file.file_name = "새로운 파일"
             file.title = "01. 큰 개념 잡기"
             file.content = "정의를 찾아보면서 찾아가보아요. 필요한 정보를 드래그, 원하는 타이틀로 드랍하기만 하면 돼요 !"
-            file.created_at = timezone.datetime.now()
-            file.updated_at = timezone.datetime.now()
+ 
             file.save()
             print("file save success---------")
 
@@ -121,17 +122,20 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
 
+        print(request.POST)
         # 해당 username과 password와 일치하는 user 객체를 가져온다.
         user = auth.authenticate(request, username=username, password=password)
         print(user)
         # 해당 user 객체가 존재한다면
         if user is not None:
             # 로그인 한다
-            user_id = User.objects.filter(username= username).values('id')
+            user_id = User.objects.filter(username= username).values_list('id')[0]
+            request.session['member_id'] = user_id
+            print(request.session.items())
             proj_list = Project.objects.filter(author_id__in= user_id)
             proj_id = proj_list.values('id')
             file_list = Files.objects.filter(project_id__in=proj_id)
-            return render(request,'file.html', {'proj':proj_list, 'file':file_list} )
+            return render(request,'file.html', {'username':username,'proj':proj_list, 'file':file_list} )
         # 존재하지 않는다면
         else:
             # 딕셔너리에 에러메세지를 전달하고 다시 login.html 화면으로 돌아간다.
@@ -152,40 +156,82 @@ def logout(request):
     return render(request, 'login.html')
 
 def create_proj(request):
+    print("여기ㅣ이이이이이이이이이이 크리에이트 프젝 !")
     if request.method == 'POST':
+        print("post")
         print(request.POST)
-
-        return redirect('/')
-    else:
-        print("=================")
         proj = Project()
-        proj.proj_name = '새로운 프로젝트'#request.POST['proj_name']
-        # print(request.session.keys())
-        # print(request.session.items())
-        user_id = request.session.get('_auth_user_id')
+        print(request.session.items())
+
+        user_id = request.session['member_id'][0]
+        user_id = str(user_id)
+        idx = Project.objects.filter(author_id = user_id).count()
+        idx = idx + 1
+        idx = str(idx)
+        proj.proj_name =  idx + "번째 프로젝트"
         user = User.objects.get(pk = user_id)
         proj.author = user
-        proj.created_at = timezone.datetime.now()
-        proj.updated_at = timezone.datetime.now()
         proj.save()
 
-        send_proj = Project.objects.all()
-        print(send_proj)
-        return render(request, 'file.html',{'proj':send_proj})
+        # file = Files()
+        # file.project = Project.objects.order_by('-pk')[0]
+        # file.user = User.objects.order_by('-pk')[0]
+        # idx = Files.objects.filter(user_id = user_id).count()
+        # idx = idx + 1
+        # idx = str(idx)
+        # file.file_name =  idx + "번째 파일"
+        # file.title = "01. 제목을 입력하세요"
+        # file.content = "정의를 찾아보면서 찾아가보아요. 필요한 정보를 드래그, 원하는 타이틀로 드랍하기만 하면 돼요 !"
+
+        # file.save()
+
+        proj_list = Project.objects.filter(author_id__in= user_id)
+        proj_id = proj_list.values('id')
+        file_list = Files.objects.filter(project_id__in=proj_id)
+
+        return  render(request, 'file.html',{'proj':proj_list, 'file':file_list})
+    else:
+        print("Get")
+
+        user_id = request.session['member_id'][0]
+        user_id = str(user_id)
+        proj_list = Project.objects.filter(author_id__in= user_id)
+        proj_id = proj_list.values('id')
+        file_list = Files.objects.filter(project_id__in=proj_id)
+        print(proj_list)
+        print(file_list)
+        return render(request, 'file.html',{'proj':proj_list, 'file':file_list})
 
 def create_file(request):
+    print(request.session['member_id'][0])
+    user_id = request.session['member_id'][0]
+    user_id = str(user_id)
+    proj_list = Project.objects.filter(author_id__in=user_id)
+    proj_id = proj_list.values('id')
+    file_list = Files.objects.filter(project_id__in=proj_id)
+    print(proj_list)
+    print(file_list)
+
     if request.method == 'POST':
-        print('createfile')
+        print('post')
         file = Files()
-        file.file_name = "새로운 파일"
-        file.title = "01. 큰 개념 잡기"
+        file.project = Project.objects.order_by('-pk')[0]
+        file.user = User.objects.order_by('-pk')[0]
+        idx = Files.objects.filter(user_id = user_id).count()
+        idx = idx + 1
+        idx = str(idx)
+        file.file_name =  idx + "번째 파일"
+        file.title = "01. 제목을 입력하세요"
         file.content = "정의를 찾아보면서 찾아가보아요. 필요한 정보를 드래그, 원하는 타이틀로 드랍하기만 하면 돼요 !"
-        file.created_at = timezone.datetime.now()
-        file.updated_at = timezone.datetime.now()
         file.save()
-        return redirect('/')
+        file_list = Files.objects.filter(user_id=user_id)
+        return render(request, 'file.html',{'proj':proj_list, 'file':file_list})
     else:
-        return render(request, 'file.html')
+        print('get')
+
+        print(proj_list)
+        print(file_list)
+        return render(request, 'file.html',{'proj':proj_list, 'file':file_list})
 
 def call_proj(request):
     proj_list = models.Project.objects.all()
