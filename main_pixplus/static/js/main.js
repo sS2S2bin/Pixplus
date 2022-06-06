@@ -124,26 +124,29 @@ commentBtns.forEach(function (commentBtn, index) {
 
 
 
-const target = document.querySelector('.target');
-const result = document.querySelector('.result');
-const screen = document.querySelector('.screen');
+// const target = document.querySelector('.target');
+// const result = document.querySelector('.result');
+// const screen = document.querySelector('.screen');
 
-function selectText() {
-  var selectionText = "";
-  if (document.getSelection) {
-    selectionText = document.getSelection();
-  } else if (document.selection) {
-    selectionText = document.selection.createRange().text;
-  }
-  return selectionText;
-}
+// function selectText() {
+//   var selectionText = "";
+//   if (document.getSelection) {
+//     selectionText = document.getSelection();
+//   } else if (document.selection) {
+//     selectionText = document.selection.createRange().text;
+//   }
+//   return selectionText;
+// }
 
-let sentence = "";
-document.onmouseup = function () {
-  console.log(""+selectText());
-  result.innerHTML = selectText();
-}
-// sentence = $('.result').html();
-// console.log(sentence);
-const textarea = $('.screen').contents().find('span');
-result.innerHTML = textarea;
+// let sentence = "";
+// document.onmouseup = function () {
+//   console.log(""+selectText());
+//   result.innerHTML = selectText();
+// }
+// // sentence = $('.result').html();
+// // console.log(sentence);
+// const textarea = $('.screen').contents().find('span');
+// result.innerHTML = textarea;
+
+
+
