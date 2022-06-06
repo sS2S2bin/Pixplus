@@ -1,5 +1,8 @@
 @import url(./index.css);
 
+@import url(./first_file.css);
+
+
 .content-screen{
   width: 800px;
   height: 1000px;

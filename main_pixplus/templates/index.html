@@ -35,7 +35,9 @@
         <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
-        <a href="{% url 'logout' %}"><img src="{% static '/icon/icon_logout.svg' %}" alt="" ></a>
+        <a href="{% url 'logout' %}"> 
+          <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
+        </a>
       </div>
     </section>
     <!-- DIRECBAR -->
@@ -49,7 +51,7 @@
           <div class="folder direcbox">
             <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
             <div class="folder_text esamanru_regul">
-              픽쁠입니다
+              <a class="file_link" href="{% url 'index' %}" target="_self">픽쁠입니다</a>
             </div>
           </div>
 
@@ -96,7 +98,7 @@
               </div>
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                LOGIN
+                <a class="file_link" href="{% url 'login' %}" target="_self">LOGIN</a>
               </div>
             </div>
           </div>
@@ -113,7 +115,7 @@
               </div>
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                Join PIX+
+                <a class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
               </div>
             </div>
           </div>
@@ -155,7 +157,7 @@
               이제 그-만
             </span>
             <br>
-            💁🏻 Pix+ 프로젝트에 필요한 소스를 모으고 똑똑하게 정리 하세요.
+            💁🏻 Pix+ 프로젝트에 필요한 소스를 모으고 똑똑하게 정리 하세요.
             <br>
             여러분이 해야할 일은 <span class="highlight_yellow">오직 검색하고, Drag</span>하기. 
             <br>

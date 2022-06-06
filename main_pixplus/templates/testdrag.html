@@ -13,10 +13,11 @@
   <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
   <!--브라우저 스타일 초기화-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-  <link rel="stylesheet" href="{% static '/css/news.css' %}" />
+  <link rel="stylesheet" href="{% static '/css/testdrag.css' %}" />
   <!--JS-->
   <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script defer src="{% static '/js/main.js' %}"></script>
+  <script defer src="{% static '/js/selection.js' %}"></script>
 
   <!--글꼴-->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -132,10 +133,43 @@
       </div>
 
       <div class="inner_body">
-        <p class="target">드래그 테스트 중입니다 드래그 테스트 중입니다</p>
+
+        <div class="tool_block">
+          <div class="tool">
+            <img class="point_tool" onclick="pointOn()" src="{% static '/icon/pointing_disable.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img class="bold_tool" onclick="boldOn()" src="{% static '/icon/bold_disable.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img class="erase_tool" onclick="eraseOn()" src="{% static '/icon/eraser_disable.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img class="choose_tool" src="{% static '/icon/choose_disable.svg' %}" alt="">
+          </div>
+        </div>
+
+      
         <div class="result"></div>
-        <iframe id="screen" class="screen" src="https://news.kbs.co.kr/news/view.do?ncd=5469553" width="100%" height="100%" type="text/html" draggable="true">
+        <iframe id="screen" class="screen" src="https://news.kbs.co.kr/news/view.do?ncd=5469553" width="100%"
+          height="100%" type="text/html" draggable="true">
         </iframe>
+
+        <section class="alert-box alert-box-point">
+          <div class="alert-content">
+            포인팅하기 - 원하는 영역을 드래그!
+          </div>
+        </section>
+        <section class="alert-box alert-box-erase">
+          <div class="alert-content">
+            포인팅+강조 지우기 - 원하는 영역을 드래그!
+          </div>
+        </section>
+        <section class="alert-box alert-box-bold">
+          <div class="alert-content">
+            강조하기 - 원하는 영역을 드래그!
+          </div>
+        </section>
       </div>
     </section>
   </div>

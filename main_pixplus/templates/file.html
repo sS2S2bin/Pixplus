@@ -6,195 +6,226 @@
     <!-- ICONBAR -->
     <section class="box iconbar">
       <div class="icon_news">
-        <img src="{% static '/icon/icon_news.svg' %}" alt="">
+        <a href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
       </div>
       <div class="icon_paper">
         <img src="{% static '/icon/icon_paper.svg' %}" alt="">
       </div>
       <div class="icon_url">
-        <img src="{% static '/icon/icon_customurl.svg' %}" alt="">
+        <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
         <a href="{% url 'logout' %}">
-            <img src="{% static '/icon/icon_logout.svg' %}" alt="">
+          <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
         </a>
-
       </div>
     </section>
     <!-- DIRECBAR -->
     <section class="box direcbar">
       <div class="inner_top esamanru_light">
-        <div>
-            
-            {% if user.is_authenticated %}
-            {{ user.username }}, 님 환영합니다.
-            {% else %}
-            : welcome to pix+
-            {% endif %}
-        </div>
+        {% if user.is_authenticated %}
+        {{ request.user.username }}, 님 환영합니다.
+        {% else %}
+        : welcome to pix+
+        {% endif %}
       </div>
       <nav class="inner_body">
 
-        {% comment %} <a href="{% url 'addnewproj' %}">
-            <img src="{% static '/icon/icon_logout.svg' %}" alt="">
-        </a>
-        <a href="{% url 'addnewfile' %}">
-            <img src="{% static '/icon/icon_logout.svg' %}" alt="">
-        </a> {% endcomment %}
-
+        {% for proj in proj %}
         <div class="proj">
-
           <div class="folder direcbox">
             <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
             <div class="folder_text esamanru_regul">
-                2022년 1학기
+              {{ proj.proj_name }}
             </div>
           </div>
-
+          
+          {% for file in file %}
           <div class="file direcbox">
             <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
-              <div class="file_text">
-                Hello Pix+!
-              </div>
               <div class="file_drop unactive">
                 ▼
               </div>
-            </div>
-          </div>
-
-          <div class="file direcbox">
-            <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                MR &amp; 미디어 
-              </div>
-              <div class="file_drop unactive">
-                ▼
+                {{ file.file_name }}
               </div>
             </div>
             <div class="index direcbox">
               <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <div class="index_text">
-                01. 개념
-              </div>
-            </div>
-            <div class="index direcbox">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-              <div class="index_text">
-                02. 적용사례
+                {{ file.title }}
               </div>
             </div>
           </div>
-
-          <div class="file direcbox">
-            <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
-              <div class="file_text">
-                딥러닝
-              </div>
-              <div class="file_drop unactive">
-                ▼
-              </div>
-            </div>
-          </div>
-
-          <div class="file direcbox">
-            <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
-              <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
-              <div class="file_text">
-                취업 정보
-              </div>
-              <div class="file_drop unactive">
-                ▼
-              </div>
-            </div>
-          </div>
+          {% endfor %}
 
         </div>
+        <div class="file direcbox">
+          <div class="file_line">
+            <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+            <div class="file_text add_file" style="color : grey">
+
+              파일 추가
+
+            </div>
+            <div class="file_drop unactive">
+              ▼
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+        <div class="file direcbox">
+          <div class="file_line">
+            <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+            <div class="file_text new_file" style="color : grey">
+              <a href="{% url 'create_proj' %}">
+              새 프로젝트 추가
+              </a>
+            </div>
+            <div class="file_drop unactive">
+              ▼
+            </div>
+          </div>
+        </div>
+
       </nav>
 
     </section>
     <!-- MAINWINDOW -->
     <section class="box window_main">
-
-      <div class="tab inner_top">
+      <div class="inner_top">
         <div class="tab_title">
-          <!--제목부분네모-->
           <img class="mdicon tab_icon" src="{% static '/icon/file.svg' %}" alt="">
           <div class="tab_text">
-            MR &amp; 미디어 
+            Hello Pix+!
           </div>
-          <div class="closeBtn">X</div>
         </div>
         <div class="tab_deco"></div>
-        <!--제목옆에세모-->
       </div>
+      <div class="inner_body">
+        <div class="tool_block">
+          <div class="tool">
+            <img src="{% static '/icon/pointing_active.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img src="{% static '/icon/bold_disable.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img src="{% static '/icon/eraser_disable.svg' %}" alt="">
+          </div>
+          <div class="tool">
+            <img src="{% static '/icon/choose_disable.svg' %}" alt="">
+          </div>
+        </div>
+        <div class="file_block">
+          {% for file in file %}
 
-    <div class="inner_body">
-        <div class="block_container">
-            <div class="text_block">
-            <span class="title">
-                01. 개념
-            </span>
-                <br>
-                반복되는 Ctrl+C Ctrl+V .. 워드 올려 🏴 웹 내려 🏳️ 다시 워드 올리지말고 메모장 올려 🏴
-                <br>
-                아까 본 그 자료.. 어딨지?! 탭이 너무 많아 😵💫
-
-                <table> 
-                    <tr> 
-                    <td onCopy='javascript:contents_cp();'> 
-                    마우스 드래그 복사시 출처 자동복사<br> 
-                    onCopy='javascript:contents_cp();'를 div,span,td,p...... 태그등에 넣어주세요.<br> 
-                    </td> 
-                    </tr> 
-                    </table>
+          <div class="file_index">{{ file.title }}</div>
+          <div class="file_content">
+            <div class="content-text">
+              {{ file.content }} <br/>
             </div>
+            <div class="content-option">
+              <div class="option copy-url btn">Copy URL
+                <span class="url-tooltip">
+                  <span class="url-tooltip-text">(복사되는 URL1 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option copy-res">Copy 출처
+                <span class="res-tooltip">
+                  <span class="res-tooltip-text">(복사되는 출처1 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option commentBtn">Comment</div>
+              <div class="option">Delete</div>
+            </div>
+          </div>
+          {% endfor %}
+
+          <div class="content-comment-box">
+            <!-- <form class="content-comment">
+            <input id="commentInput" type="text" placeholder="comment를 입력해 주세요.">
+            <button id="commentSubmit" type="submit">등록</button>
+            </form> -->
+          </div>
+          <div class="file_content">
+            <div class="content-text">
+              마우스의 커서를 올리고 내릴 때의 버튼들의 변화를 확인해보세요.<br/>
+              마우스를 올렸을 때 오른쪽 버튼들의 바탕색과 폰트 색깔이 바뀌는 것을 확인하셨나요?<br/>
+              예시는 이 내용박스의 Delete입니다. 마우스를 올렸을 때의 속성은 다음과 같습니다.<br/>
+              폰트의 색상은 #fbfbfb이며, 폰트의 테두리는 787D82,<br/>
+              바탕색의 색상은 D2D6DA입니다.
+            </div>
+            <div class="content-option">
+              <div class="option copy-url">Copy URL
+                <span class="url-tooltip">
+                  <span class="url-tooltip-text">(복사되는 URL2 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option copy-res">Copy 출처
+                <span class="res-tooltip">
+                  <span class="res-tooltip-text">(복사되는 출처2 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option commentBtn">Comment</div>
+              <div class="option">Delete</div>
+            </div>
+          </div>
+          <div class="content-comment-box">
+            <!-- <form class="content-comment">
+            <input id="commentInput" type="text" placeholder="comment를 입력해 주세요.">
+            <button id="commentSubmit" type="submit">등록</button>
+            </form> -->
+          </div>
+        </div>
+        <div class="file_block">
+          <div class="file_index">02. 두 번째 인덱스입니다.</div>
+          <div class="file_content">
+            <div class="content-text">
+              이 본문은 다음과 같은 속성을 띄고 있습니다.<br/>
+              Noto Sans 폰트 중 Light를 사용했으며, 크기는 16px 입니다.<br/>
+              <span class="text--bold">Bold</span> 체를 사용할 경우, <span class="text--md">Medium</span>으로 바꿔주세요.<br/>
+              추가적으로 인덱스의 속성은 Bold, 24px 입니다.<br/>
+              한 문장을 더 적어볼게요.
+            </div>
+            <div class="content-option">
+              <div class="option copy-url">Copy URL
+                <span class="url-tooltip">
+                  <span class="url-tooltip-text">https://www.naver.com</span>
+                </span>
+              </div>
+              <div class="option copy-res">Copy 출처
+                <span class="res-tooltip">
+                  <span class="res-tooltip-text">(복사되는 출처3 내용입니다.)</span>
+                </span>
+              </div>
+              <div class="option commentBtn">Comment</div>
+              <div class="option">Delete</div>
+            </div>
+          </div>
+          <div class="content-comment-box">
+            <!-- <form class="content-comment">
+            <input id="commentInput" type="text" placeholder="comment를 입력해 주세요.">
+            <button id="commentSubmit" type="submit">등록</button>
+            </form> -->
+          </div>
         </div>
 
-        <div class="block_container">
-            <div class="text_block">
-            <span class="title">
-                02. 적용사례
-            </span>
-                <br>
-                ## 보로디노 전투 파노라마(1812)
-
-                파노라마로 사람을 감싸 이 전투를 사람들이 하여금 놓여져있는 기분이 들게함. 
-                <br>
-
-                ## 입체시 이론 등장 - Charles Wheatstone (1802-1875)
-
-                입체시 이론 : 단순히 작아져서 X , 나만의 시차가 존재, 깊이감을 느껴 입체감을 느낄 수 있다.
-
-                → 오른쪽 눈, 왼쪽 눈이 볼 수 있는 시야각
-
-                → 구도가 다른 사진을 각 각 오른쪽 왼쪽 눈 바로 앞에서 보여줌. 시차발생 !
-                <br>
-
-                **깊이감의 시초**
-
-                입체시이론 → 개발 : Stereoscope(입체감) 19C
-
-                카드보드
-                <br>
-
-                ## 현대와 비슷한 사고 - Stanley G. Weinbaum (1902-1935)
-
-                오감을 느낄 수 있는 고글이 등장하는 소설을 쓴 작가. 
-
-                비슷한 환경에 대해 상상 😵💫
-            </div>
-        </div>
-    </div>
-
-
+        <section class="alert-box alert-box-url">
+          <div class="alert-content">
+            URL이 복사되었습니다.
+          </div>
+        </section>
+        <section class="alert-box alert-box-res">
+          <div class="alert-content">
+            출처가 복사되었습니다.
+          </div>
+        </section>
+      </div>
     </section>
-
+  </div>
 {% endblock %}
 

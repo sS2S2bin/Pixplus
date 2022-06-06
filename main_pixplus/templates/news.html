@@ -35,8 +35,9 @@
         <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
-        <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
-        <a href="{% url 'logout' %}">임시 로그아웃</a>
+        <a href="{% url 'logout' %}">
+          <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
+        </a>
       </div>
     </section>
     <!-- DIRECBAR -->
@@ -132,16 +133,16 @@
       <div class="inner_body">
         <div class="block_container">
           <div class="news_block">
-            <div class="news_icon">
-
+            <div class="news_icon" style="background:url('/static/img/naver.png'); background-size: cover;">
+            
             </div>
             <div class="news_text">
-              <a href="{% url 'testdrag' %}" target="_self">네이버 뉴스</a>
+              네이버 뉴스
             </div>
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/google.png'); background-size: cover;">
 
             </div>
             <div class="news_text">
@@ -150,15 +151,15 @@
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/daum.png'); background-size: cover;">
 
             </div>
-            <div class="news_text">
+            <div class="news_text" >
               다음 뉴스
             </div>
           </div>
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/it.jpg'); background-size: cover; background-position: center;">
 
             </div>
             <div class="news_text">
@@ -167,16 +168,16 @@
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/kbs.jpg'); background-size: cover;">
 
             </div>
             <div class="news_text">
-              KBS 뉴스
+              <a href="{% url 'testdrag' %}" target="_self">KBS 뉴스</a>
             </div>
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/mbc.jpg'); background-size: cover;">
 
             </div>
             <div class="news_text">
@@ -184,7 +185,7 @@
             </div>
           </div>
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/sbs.jpg'); background-size: cover;">
 
             </div>
             <div class="news_text">
@@ -193,7 +194,7 @@
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/jtbc.jfif'); background-size: cover;">
 
             </div>
             <div class="news_text">
@@ -202,7 +203,7 @@
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/ytn.png'); background-size: cover;">
 
             </div>
             <div class="news_text">
@@ -210,7 +211,7 @@
             </div>
           </div>
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/yh.jpg'); background-size: cover;">
 
             </div>
             <div class="news_text">
@@ -219,7 +220,7 @@
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/j.jpg'); background-size: cover;">
 
             </div>
             <div class="news_text">
@@ -228,7 +229,7 @@
           </div>
 
           <div class="news_block">
-            <div class="news_icon">
+            <div class="news_icon" style="background:url('/static/img/js.jfif'); background-size: contain; background-position: center;">
 
             </div>
             <div class="news_text">
