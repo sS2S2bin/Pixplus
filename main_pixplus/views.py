@@ -206,8 +206,6 @@ def call_proj(request):
     proj_list = models.Project.objects.all()
     file_list = models.Files.objects.all()
     return render(request, 'index.html' ,{'project':proj_list, 'file':file_list})
-
-
 def testdrag(request):
     return render(request,'testdrag.html')
 

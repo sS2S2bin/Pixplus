@@ -1,4 +1,5 @@
-# from asyncio import FastChildWatcher
+
+from asyncio import FastChildWatcher
 from enum import unique
 from pyexpat import model
 from statistics import mode
