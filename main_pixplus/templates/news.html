@@ -26,16 +26,16 @@
     <!-- ICONBAR -->
     <section class="box iconbar">
       <div class="icon_news">
-        <a href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
+        <a class="file_link"  href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
       </div>
       <div class="icon_paper">
         <img src="{% static '/icon/icon_paper.svg' %}" alt="">
       </div>
       <div class="icon_url">
-        <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
+        <a class="file_link"  href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
-        <a href="{% url 'logout' %}">
+        <a class="file_link"  href="{% url 'logout' %}">
           <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
         </a>
       </div>
@@ -172,7 +172,7 @@
 
             </div>
             <div class="news_text">
-              <a href="{% url 'testdrag' %}" target="_self">KBS 뉴스</a>
+              <a class="file_link"  href="{% url 'testdrag' %}" target="_self">KBS 뉴스</a>
             </div>
           </div>
 

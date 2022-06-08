@@ -26,8 +26,7 @@ class Project(models.Model):
     author= models.ForeignKey(User, related_name='user', on_delete=models.CASCADE, db_column="author") # 연결된 N 쪽 데이터 모두 삭제
     # author_name = models.CharField('author_name',max_length=20, null=True) # 연결된 N 쪽 데이터 모두 삭제
     proj_name = models.CharField('프로젝트이름',max_length=20, null=False)
-    created_at = models.DateField(default=timezone.now)
-    updated_at = AutoDateTimeField(default=timezone.now)
+
 
     def __str__(self):
         return self.proj_name
@@ -45,8 +44,7 @@ class Files(models.Model):
     title = models.CharField('제목',max_length=20, null=True)
     content = models.TextField('내용',null=True)
     comment = models.TextField('댓글',null=True)
-    created_at = models.DateField(default=timezone.now)
-    updated_at = AutoDateTimeField(default=timezone.now)
+
     
     def __str__(self):
         return self.file_name

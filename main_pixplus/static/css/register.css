@@ -1,0 +1,95 @@
+@import url(./index.css);
+/* SIGNUP WINDOW */
+.signup_block{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  font-family: 'GongGothicLight';
+}
+
+.signup_block .title{
+  margin-bottom: 20px;
+}
+
+.signup_block form{
+  width: 30%;
+  max-width: 400px;
+  min-width: 300px;
+  padding: 40px;
+  border: 1px solid #787D82;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signup_block form .signup_fieldset{
+  font-family: 'GongGothicMedium';
+  font-size: calc(14px + 0.4vw);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.signup_fieldset .inputblank{
+  background: #FBFBFB;
+  border: 1px dashed #787D82;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 0px #D2D6DA;
+  font-size: calc(12px + 0.4vw);
+  font-family: 'GongGothicLight';
+  margin-top: 10px;
+}
+
+.idfield{
+  display: flex;
+  
+}
+.idfield .inputblank{
+  flex-grow:2;
+  margin-right: 10px;
+}
+.idfield .btn{
+  flex-grow: 1;
+  margin-top: 10px;
+
+  background: #D2D6DA;
+  border: 3px outset #E5E5E5;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 0px #D2D6DA;
+
+  font-size: calc(8px + 0.4vw);
+  font-family: 'GongGothicLight';
+}
+.idcheck{
+  position: relative;
+  font-size: calc(8px + 0.4vw);
+  font-family: 'GongGothicLight';
+  margin-bottom: 30px;
+}
+.idcheck .id-success{
+  width: max-content;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  color:green;
+}
+.idcheck .id-fail{
+  width: max-content;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  color:red;
+}
+.pwfield .inputblank{
+  width: 100%;
+}
+input.btn{
+  width: 100%;
+  background: #D2D6DA;
+  border: 3px outset #E5E5E5;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 0px #D2D6DA;
+
+  font-family: 'GongGothicLight';
+  padding: 10px;
+  font-size: calc(12px + 0.4vw);
+}
