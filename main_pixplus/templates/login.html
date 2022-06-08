@@ -12,7 +12,6 @@
     <link rel="icon" href="{% static '/icon/favicon.ico' %}" />
     <!--브라우저 스타일 초기화-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
-    <link rel="stylesheet" href="{% static '/css/index.css' %}" />
     <link rel="stylesheet" href="{% static '/css/login.css' %}" />
     <!--JS-->
     <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -52,32 +51,30 @@
           <div class="folder direcbox">
             <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
             <div class="folder_text esamanru_regul">
-              픽쁠입니다
+              <a class="file_link" href="{% url 'index' %}" target="_self">픽쁠입니다</a>
             </div>
           </div>
 
           <div class="file direcbox">
             <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="file_drop unactive">
+                ▼
+              </div>
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 Hello Pix+!
               </div>
-              <div class="file_drop unactive">
-                ▼
-              </div>
             </div>
           </div>
-          
+
           <div class="file direcbox">
             <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="file_drop active">
+                ▼
+              </div>
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 How to?
-              </div>
-              <div class="file_drop unactive">
-                ▼
               </div>
             </div>
             <div class="index direcbox">
@@ -96,30 +93,26 @@
 
           <div class="file direcbox">
             <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
+              <div class="file_drop unactive">
+                ▼
+              </div>
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 <a class="file_link" href="{% url 'login' %}" target="_self">LOGIN</a>
               </div>
+            </div>
+          </div>
+          <div class="file direcbox">
+            <div class="file_line">
               <div class="file_drop unactive">
                 ▼
               </div>
-            </div>
-          </div>
-
-          <div class="file direcbox">
-            <div class="file_line">
-              <img class="smicon index_icon" src="{% static '/icon/icon_index.svg' %}" alt="">
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
                 <a class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
               </div>
-              <div class="file_drop unactive">
-                ▼
-              </div>
             </div>
           </div>
-
         </div>
       </nav>
 

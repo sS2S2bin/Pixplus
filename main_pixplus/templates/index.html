@@ -26,16 +26,16 @@
     <!-- ICONBAR -->
     <section class="box iconbar">
       <div class="icon_news">
-        <a href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
+        <a class="file_link"  href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
       </div>
       <div class="icon_paper">
         <img src="{% static '/icon/icon_paper.svg' %}" alt="">
       </div>
       <div class="icon_url">
-        <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
+        <a class="file_link"  href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
-        <a href="{% url 'logout' %}"> 
+        <a class="file_link"  href="{% url 'logout' %}"> 
           <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
         </a>
       </div>
@@ -43,7 +43,7 @@
     <!-- DIRECBAR -->
     <section class="box direcbar">
       <div class="inner_top esamanru_light">
-        <div><a href="{% url 'file1' %}" target="_self">: welcome to pix+</a></div>
+        <div><a class="file_link"  href="{% url 'file1' %}" target="_self">: welcome to pix+</a></div>
       </div>
       <nav class="inner_body">
         <div class="proj">
@@ -51,7 +51,7 @@
           <div class="folder direcbox">
             <img class="lgicon folder_icon" src="{% static '/icon/folder_open_yellow.svg' %}" alt="">
             <div class="folder_text esamanru_regul">
-              <a class="file_link" href="{% url 'index' %}" target="_self">픽쁠입니다</a>
+              <a class="file_link"  class="file_link" href="{% url 'index' %}" target="_self">픽쁠입니다</a>
             </div>
           </div>
 
@@ -98,7 +98,7 @@
               </div>
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                <a class="file_link" href="{% url 'login' %}" target="_self">LOGIN</a>
+                <a class="file_link"  class="file_link" href="{% url 'login' %}" target="_self">LOGIN</a>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@
               </div>
               <img class="mdicon file_icon" src="{% static '/icon/file.svg' %}" alt="">
               <div class="file_text">
-                <a class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
+                <a class="file_link"  class="file_link" href="{% url 'newpixple' %}" target="_self">Join PIX+</a>
               </div>
             </div>
           </div>

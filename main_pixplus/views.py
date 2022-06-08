@@ -19,9 +19,6 @@ import json
 from .models import *
 from main_pixplus.models import *
 
-# from django.core import serializers
-# from .serializers import FileSerializer, ProjectSerializer
-
 logger = logging.getLogger(__name__)
 
 # 첫 화면
@@ -57,12 +54,27 @@ def customurl(request):
 def news(request):
     return render(request, 'news.html')
 
-def file1(request):
-    return render(request,'first_file1.html')
+#아이디 중복 체크
+def id_overlap_check(request):
+    print("===아이디 중복채크 ===")
+    username = request.GET.get('username')
+    try:
+        # 중복 검사 실패
+        user = User.objects.get(username=username)
+    except Exception as e:
+        # 중복 검사 성공
+        user = None
+        print("except")
+    if user is None:
+        overlap = 0 #pass 성공
+    else:
+        overlap = 1 #fail 실패
+    context = {'overlap': overlap}
+    print(context)
+    print("==overlapend===")
+    return JsonResponse(context)
 
-def testdrag(request):
-    return render(request,'testdrag.html')
-
+# 회원가입
 def signup(request):
     print("====signup 함수 들어옴====")
     # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
@@ -90,7 +102,6 @@ def signup(request):
             # user = User.objects.get(pk = user_id)
             user = User.objects.order_by('-pk')[0]
             proj.author = user
-
             proj.save()
             print("proj save success---------")
             file = Files()
@@ -153,7 +164,7 @@ def logout(request):
         return redirect('/')
 
     # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
-    return render(request, 'login.html')
+    return render(request, 'index.html')
 
 def create_proj(request):
     print("여기ㅣ이이이이이이이이이이 크리에이트 프젝 !")
@@ -237,3 +248,8 @@ def call_proj(request):
     proj_list = models.Project.objects.all()
     file_list = models.Files.objects.all()
     return render(request, 'index.html' ,{'project':proj_list, 'file':file_list})
+def testdrag(request):
+    return render(request,'testdrag.html')
+
+def file1(request):
+    return render(request,'first_file1.html')

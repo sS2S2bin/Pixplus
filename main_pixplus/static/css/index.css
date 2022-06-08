@@ -185,6 +185,16 @@ img {
   margin-left: 10px;
 }
 
+.file_link{
+  color: #1d1e1f;
+  text-decoration: none;
+}
+
+a{
+  text-decoration: none !important;
+  color: #1d1e1f;
+}
+
 .container .direcbar .inner_body .file .file_line {
   position: relative;
   align-items: flex-end;

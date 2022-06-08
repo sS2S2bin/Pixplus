@@ -6,16 +6,16 @@
     <!-- ICONBAR -->
     <section class="box iconbar">
       <div class="icon_news">
-        <a href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
+        <a class="file_link"  href="{% url 'news' %}" target="_self"><img src="{% static '/icon/icon_news.svg' %}" alt=""></a>
       </div>
       <div class="icon_paper">
         <img src="{% static '/icon/icon_paper.svg' %}" alt="">
       </div>
       <div class="icon_url">
-        <a href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
+        <a class="file_link"  href="{% url 'customurl' %}" target="_self"><img src="{% static '/icon/icon_customurl.svg' %}" alt=""></a>
       </div>
       <div class="icon_logout">
-        <a href="{% url 'logout' %}">
+        <a class="file_link"  href="{% url 'logout' %}">
           <img src="{% static '/icon/icon_logout.svg' %}" alt="" >
         </a>
       </div>
@@ -98,16 +98,16 @@
       <div class="inner_body">
         <div class="tool_block">
           <div class="tool">
-            <img src="{% static '/icon/pointing_active.svg' %}" alt="">
+            <img class="point_tool" onclick="pointOn()" src="{% static '/icon/pointing_disable.svg' %}" alt="">
           </div>
           <div class="tool">
-            <img src="{% static '/icon/bold_disable.svg' %}" alt="">
+            <img class="bold_tool" onclick="boldOn()" src="{% static '/icon/bold_disable.svg' %}" alt="">
           </div>
           <div class="tool">
-            <img src="{% static '/icon/eraser_disable.svg' %}" alt="">
+            <img class="erase_tool" onclick="eraseOn()" src="{% static '/icon/eraser_disable.svg' %}" alt="">
           </div>
           <div class="tool">
-            <img src="{% static '/icon/choose_disable.svg' %}" alt="">
+            <img class="choose_tool" src="{% static '/icon/choose_disable.svg' %}" alt="">
           </div>
         </div>
         <div class="file_block">
@@ -116,7 +116,11 @@
           <div class="file_index">{{ file.title }}</div>
           <div class="file_content">
             <div class="content-text">
+              <p>
+
               {{ file.content }} <br/>
+              </p>
+
             </div>
             <div class="content-option">
               <div class="option copy-url btn">Copy URL
@@ -143,11 +147,13 @@
           </div>
           <div class="file_content">
             <div class="content-text">
-              마우스의 커서를 올리고 내릴 때의 버튼들의 변화를 확인해보세요.<br/>
-              마우스를 올렸을 때 오른쪽 버튼들의 바탕색과 폰트 색깔이 바뀌는 것을 확인하셨나요?<br/>
-              예시는 이 내용박스의 Delete입니다. 마우스를 올렸을 때의 속성은 다음과 같습니다.<br/>
-              폰트의 색상은 #fbfbfb이며, 폰트의 테두리는 787D82,<br/>
-              바탕색의 색상은 D2D6DA입니다.
+              <p>
+                마우스의 커서를 올리고 내릴 때의 버튼들의 변화를 확인해보세요.
+                마우스를 올렸을 때 오른쪽 버튼들의 바탕색과 폰트 색깔이 바뀌는 것을 확인하셨나요?
+                예시는 이 내용박스의 Delete입니다. 마우스를 올렸을 때의 속성은 다음과 같습니다.
+                폰트의 색상은 #fbfbfb이며, 폰트의 테두리는 787D82,
+                바탕색의 색상은 D2D6DA입니다.
+              </p>
             </div>
             <div class="content-option">
               <div class="option copy-url">Copy URL
@@ -175,11 +181,13 @@
           <div class="file_index">02. 두 번째 인덱스입니다.</div>
           <div class="file_content">
             <div class="content-text">
+              <p>
               이 본문은 다음과 같은 속성을 띄고 있습니다.<br/>
               Noto Sans 폰트 중 Light를 사용했으며, 크기는 16px 입니다.<br/>
               <span class="text--bold">Bold</span> 체를 사용할 경우, <span class="text--md">Medium</span>으로 바꿔주세요.<br/>
               추가적으로 인덱스의 속성은 Bold, 24px 입니다.<br/>
               한 문장을 더 적어볼게요.
+              </p>
             </div>
             <div class="content-option">
               <div class="option copy-url">Copy URL
@@ -212,6 +220,21 @@
         <section class="alert-box alert-box-res">
           <div class="alert-content">
             출처가 복사되었습니다.
+          </div>
+        </section>
+        <section class="alert-box alert-box-point">
+          <div class="alert-content">
+            포인팅하기 - 원하는 영역을 드래그!
+          </div>
+        </section>
+        <section class="alert-box alert-box-erase">
+          <div class="alert-content">
+            포인팅+강조 지우기 - 원하는 영역을 드래그!
+          </div>
+        </section>
+        <section class="alert-box alert-box-bold">
+          <div class="alert-content">
+            강조하기 - 원하는 영역을 드래그!
           </div>
         </section>
       </div>

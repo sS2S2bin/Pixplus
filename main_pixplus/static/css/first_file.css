@@ -21,6 +21,12 @@
   width: 24px;
   height: 24px;
   margin: 6px;
+  cursor: pointer;
+}
+
+.tool:hover{
+  border: 1px solid #787d82;
+  box-sizing: border-box;
 }
 
 .text--bold{
@@ -180,4 +186,12 @@
   font-weight: bold;
 
   display: none;
+}
+
+.point{
+  background: linear-gradient(to top, yellow 50%, transparent 50%);
+}
+
+.erase{
+  background-color: #fbfbfb;
 }
